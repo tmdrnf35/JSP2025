@@ -45,6 +45,15 @@ public class MemberController extends HttpServlet {
 		return "/memberinfo.jsp";
 	}
 	public String insert(HttpServletRequest req, HttpServletResponse resp) {
-		return "";
+		//새로운 회원 추가 
+		// 2025.6.11 마지막수업 
+		Member m = new Member();
+		m.setUsername(req.getParameter("username"));
+		m.setCompany(req.getParameter("company"));
+		m.setEmail(req.getParameter("email"));
+		
+		dao.insert(m);
+		return list(req, resp);
 	}
+	
 }
